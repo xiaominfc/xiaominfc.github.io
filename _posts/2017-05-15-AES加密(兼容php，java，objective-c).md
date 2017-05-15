@@ -1,8 +1,11 @@
 ---
 layout: post
 title:  AES加密(兼容php，java，objective-c)
-category: xiaominfc
+date: 2017-05-15 10:56:48 +0800
+#category: xiaominfc
+author: xiaominfc
 description: AES加密(兼容php，java，objective-c)
+categories: aes php java
 ---
 
 这些天开发android,ios的客户端需要与服务端用php开发的api进行数据交互。为了高大上一些决定用aes加密，但是问题就来了，因为aes有好几种模式，每种模式在各种语言下都是差异化的表现方式，探索了许久终于找到合适他们三种语言的的一套方案。
