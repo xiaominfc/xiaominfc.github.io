@@ -88,7 +88,7 @@ objective-c:
 也是主要注意要补零
 NSData+AES.h
     
-~~~~
+~~~~objc
 
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonCryptor.h>
