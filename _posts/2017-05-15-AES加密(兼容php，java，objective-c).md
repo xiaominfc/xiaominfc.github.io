@@ -14,7 +14,6 @@ php：
 php的代码就比较简单，几行就搞定
 
 ~~~~php
-
 static $iv = 'AESAPPCLIENT_KEY';//16或16的倍数长个char
 //$privateKey是加密 解密需要的密钥
 function aesEncode($data,$privateKey){

@@ -3,17 +3,16 @@ layout: default
 title: Home
 ---
 
-<div class="home">
-  <div class="post-list">
+<div class="container-list">
+  <!-- <div class="post-list"> -->
 
     {% for post in site.posts limit:5%}
 
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
-        <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
-      </header>
-      <div class="post_excerpt">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h4>
+        <time class="card-subtitle mb-2 text-muted">{{ post.date | date: "%d %B %Y, %A" }}</time>
+      <div class="card-text">
         <p>
           {% if post.description %}
           {{ post.description}}
@@ -54,9 +53,10 @@ title: Home
         </p-->
       </footer>
       <hr/>
-    </article>
+      </div>
+    </div>
     {% endfor %}
 
     <div class="pagination older-post"><a href="./archive"><data data-icon="ei-arrow-right"></data> Archive  </a></div>
-  </div>
+  <!-- </div> -->
 </div>
