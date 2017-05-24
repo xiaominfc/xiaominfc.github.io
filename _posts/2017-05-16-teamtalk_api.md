@@ -8,27 +8,32 @@ description: teamtalk API
 #categories: aes php java
 ---
 
-#teamtalk 使用的API
 
+# teamtalk 使用的API
 
-##HTTP API(http_msg_server)
+## HTTP API(http_msg_server)
 
-####默认应答
+#### 默认应答
+
 ~~~~
 {
 	"error_code":0,//非0值则为失败了
 	"error_msg": "成功"//附加信息
 }
 ~~~~
-###baseurl:http://ip:8400/
 
-###url必带的参数(可以任意填写 因为默认并没有实现相关的作用)
+### baseurl:http://ip:8400/
+
+### url必带的参数(可以任意填写 因为默认并没有实现相关的作用)
+
+~~~~
 app_key: 验证
 req_user_id: 验证
+~~~~
 
-###action:post  data_type:json
+### action:post  data_type:json
+## 批量用户推送接口
 
-##批量用户推送接口
 给一批用户发通知 这样减少http的请求次数
 
 ### POST query/SendBroadCastMessage
@@ -44,7 +49,7 @@ msg_type: 默认用3（新定义的 用于推送通知） 1 用户文本消息 2
 ~~~~  
  
 
-####example:
+#### example:
 ~~~~  
 {
     "from_user_id":8,
@@ -58,7 +63,7 @@ msg_type: 默认用3（新定义的 用于推送通知） 1 用户文本消息 2
 
 
 
-##推送接口
+## 推送接口
 给指定用户 通过http发送消息
 
 ### POST /query/SendP2PMessage
@@ -72,7 +77,7 @@ msg: 消息内容 可以用特殊格式如json封装
 msg_type: 默认用3（新定义的 用于推送通知） 1 用户文本消息 2 用户音频 17 群文本消息 18 群音频消息 
 ~~~~
 
-####example:
+#### example:
 
 ~~~~
 
@@ -88,7 +93,7 @@ msg_type: 默认用3（新定义的 用于推送通知） 1 用户文本消息 2
 
 
 
-##创建群
+## 创建群
 客户端只能创建临时群  这个http的api可用于创建正式群
 
 ### POST /query/CreateGroup
@@ -104,7 +109,7 @@ group_avatar: 群icon的url
 user_id_list: 群成员
 ~~~~
 
-####example:
+#### example:
 
 ~~~~
 {
@@ -117,7 +122,7 @@ user_id_list: 群成员
 ~~~~
 
 
-##修改群成员
+## 修改群成员
 客户端走tcp的接口也有 不过通过这个也能达到目的 就是得到服务端的反馈内容会少些
 
 ### POST /query/ChangeMembers
@@ -133,7 +138,7 @@ modify_type: 修改行为 1:add 2:remove
 user_id_list: 被操作的用户ID列表
 ~~~~
 
-####example:
+#### example:
 ~~~~
 {
     "req_user_id":1,
@@ -152,13 +157,13 @@ user_id_list: 被操作的用户ID列表
 filename=filepath
 ~~~~
 
-####curl example
+#### curl example
 
 ~~~~
 curl -F "filename=@./head.jpeg" http://ip:8700/
 ~~~~
 
-####应答
+#### 应答
 
 ~~~~
 {
@@ -170,7 +175,7 @@ curl -F "filename=@./head.jpeg" http://ip:8700/
 ~~~~
 
 
-##TCP数据包(与msg_server交互用的)
+## TCP数据包(与msg_server交互用的)
 向msg_server发送的每个数据包是由16个字节长度的头加上对应的pb(google buffer protocol)序列化后的字节数组组成
 header+pb
 
@@ -189,15 +194,15 @@ typedef struct {
 seq_num 对于每个request服务端返回的response中的seq_num是一样的。他的目的就是为了标示这个应答是对应哪个请求的
 
 
-##各种pb
-###一.登录相关
+## 各种pb
+### 一.登录相关
 
 ~~~~
 //service_idSID_LOGIN(0x0001)
+~~~~
 
-
-####1.登录请求
-#####请求：IMLoginReq
+#### 1.登录请求
+##### 请求：IMLoginReq
 
 ~~~~
 //service_idSID_LOGIN(0x0001)
@@ -212,7 +217,7 @@ message IMLoginReq{
 }
 ~~~~
 
-#####应答：IMLoginRes
+##### 应答：IMLoginRes
 
 ~~~~
 //service_idSID_LOGIN(0x0001)
@@ -228,19 +233,18 @@ message IMLoginRes{
 ~~~~
 
 
-####2.退出登录
-#####请求：IMLogoutReq
+#### 2.退出登录
+##### 请求：IMLogoutReq
 
 ~~~~
 //service_idSID_LOGIN(0x0001)
 //cmd id:	CID_LOGIN_REQ_LOGINOUT(0x0105)
-
 message IMLogoutReq{
 
 }
 ~~~~
 
-#####应答：IMLoginRes
+##### 应答：IMLoginRes
 
 ~~~~
 //cmd id:	CID_LOGIN_RES_LOGINOUT(0x0106)
@@ -251,15 +255,15 @@ message IMLogoutRsp{
 ~~~~
 
 
-###二.用户相关
+### 二.用户相关
 
 ~~~~
 //service_idSID_BUDDY_LIST(0x0002)
 ~~~~
 
-####1.请求用户列表
+#### 1.请求用户列表
 每次登录后都得进行的请求根据latest_update_time跟服务端做用户列表的差分达到同步最新用户列表的目的
-####请求:IMAllUserReq
+#### 请求:IMAllUserReq
 
 ~~~~
 //cmd id:	CID_BUDDY_LIST_ALL_USER_REQUES(0x0208)
@@ -272,7 +276,7 @@ message IMAllUserReq{
 }
 ~~~~
 
-####应答:IMAllUserRsp
+#### 应答:IMAllUserRsp
 
 ~~~~
 //cmd id:	CID_BUDDY_LIST_ALL_USER_RESPONSE(0x0209)
@@ -288,9 +292,9 @@ message IMAllUserRsp{
 ~~~~
 
 
-####2.请求部门列表
+#### 2.请求部门列表
 与获取用户列表的类似 都要达到获取最新的列表
-####请求:IMDepartmentReq
+#### 请求:IMDepartmentReq
 
 ~~~~
 //cmd id:   CID_BUDDY_LIST_DEPARTMENT_REQUEST(0x0210)
@@ -303,7 +307,7 @@ message IMDepartmentReq{
 }
 ~~~~
 
-####应答：IMDepartmentRsp
+#### 应答：IMDepartmentRsp
 
 ~~~~
 //cmd id:   CID_BUDDY_LIST_DEPARTMENT_RESPONSE(0x0211)
@@ -318,8 +322,8 @@ message IMDepartmentRsp{
 ~~~~
 
 
-####3.请求最近聊天会话列表
-#####请求：IMRecentContactSessionReq
+#### 3.请求最近聊天会话列表
+##### 请求：IMRecentContactSessionReq
 
 ~~~~
 //cmd id:   CID_BUDDY_LIST_RECENT_CONTACT_SESSION_REQUEST(x0201)
@@ -333,7 +337,7 @@ optional bytes attach_data = 20;
 ~~~~
 
 
-#####应答：IMRecentContactSessionRsp
+##### 应答：IMRecentContactSessionRsp
 
 ~~~~
 //cmd id:   CID_BUDDY_LIST_RECENT_CONTACT_SESSION_RESPONSE(x0202)
@@ -347,7 +351,7 @@ message IMRecentContactSessionRsp{
 ~~~~
 
 
-####4.移除会话(session)
+#### 4.移除会话(session)
 
 ~~~~
 	//cmd id:		CID_BUDDY_LIST_REMOVE_SESSION_REQ 0x0206
@@ -362,15 +366,15 @@ message IMRemoveSessionReq{
 
 
 
-###三.群聊相关
+### 三.群聊相关
 
 ~~~~
 //service_idSID_GROUP(0x0004)
 ~~~~
 
-####1.请求群聊列表
-
-#####请求：IMNormalGroupListReq
+#### 1.请求群聊列表
+ 
+##### 请求：IMNormalGroupListReq
 
 ~~~~
 //cmd id:   CID_GROUP_NORMAL_LIST_REQUEST(0x0401)
@@ -383,7 +387,7 @@ message IMNormalGroupListReq{
 ~~~~
 
 
-#####应答：IMNormalGroupListRsp
+##### 应答：IMNormalGroupListRsp
 
 ~~~~
 //cmd id:   CID_GROUP_NORMAL_LIST_RESPONSE(0x0402)
@@ -398,10 +402,10 @@ message IMNormalGroupListRsp{
 
 
 
-####2.请求群详情:
+#### 2.请求群详情:
 前面的API只能获取到用户所在的群号(通过用户与群的关系表查得。所以再用这个接口获取群的具体详情)
 这个API还可以更新本地存储的群详情(每次修改群相关信息,群的version就会加1。所以把本地的群的version发送过过去就能知道该群有没有被修改了)
-#####请求：IMGroupInfoListReq
+##### 请求：IMGroupInfoListReq
 
 ~~~~
 //cmd id:   CID_GROUP_INFO_REQUEST(0x0403)
@@ -415,7 +419,7 @@ message IMGroupInfoListReq{
 ~~~~
 
 
-#####应答：IMGroupInfoListRsp
+##### 应答：IMGroupInfoListRsp
 
 ~~~~
 //cmd id:   CID_GROUP_INFO_RESPONSE(0x0404)
@@ -428,8 +432,8 @@ message IMGroupInfoListRsp{
 }
 ~~~~
 
-####3.创建群
-#####请求:IMGroupCreateReq
+#### 3.创建群
+##### 请求:IMGroupCreateReq
 
 ~~~~
 //cmd id:			(CID_GROUP_CREATE_REQUEST)0x0405
@@ -446,7 +450,7 @@ message IMGroupCreateReq{
 ~~~~
 
 
-#####应答:IMGroupCreateRsp
+##### 应答:IMGroupCreateRsp
 
 ~~~~
 //cmd id:(CID_GROUP_CREATE_REQUEST)0x0406
@@ -462,8 +466,8 @@ message IMGroupCreateRsp{
 ~~~~
 
 
-####4.修改群成员列表
-#####请求：IMGroupChangeMemberReq
+#### 4.修改群成员列表
+##### 请求：IMGroupChangeMemberReq
 
 ~~~~
 //cmd id:（CID_GROUP_CHANGE_MEMBER_REQUEST）0x0407
@@ -479,7 +483,7 @@ message IMGroupChangeMemberReq{
 ~~~~
 
 
-#####应答：IMGroupChangeMemberRsp
+##### 应答：IMGroupChangeMemberRsp
 
 ~~~~
 //cmd id:（CID_GROUP_CHANGE_MEMBER_RESPONSE）0x0408
@@ -497,13 +501,13 @@ message IMGroupChangeMemberRsp{
 ~~~~
 
 
-###四.聊天相关
+### 四.聊天相关
 ~~~~
 //service_idSID_MSG(0x0003)
 ~~~~
 
-####1.发送消息以及新消息
-#####请求：IMMsgData
+#### 1.发送消息以及新消息
+##### 请求：IMMsgData
 客户端端向服务端发消息以及收到的新消息都是用这个封装
 
 ~~~~
@@ -521,7 +525,7 @@ message IMMsgData{
 }
 ~~~~
 
-#####应答(发送成功后服务端返回的):IMMsgDataAck
+##### 应答(发送成功后服务端返回的):IMMsgDataAck
 
 ~~~~
 //cmd id:CID_MSG_DATA_ACK(0x0302)
@@ -536,7 +540,7 @@ message IMMsgDataAck{
 ~~~~
 
 
-#####应答(应答来自服务器给你发的新消息):IMMsgDataReadAck
+##### 应答(应答来自服务器给你发的新消息):IMMsgDataReadAck
 结构与IMMsgDataAck类似。就是接收到新消息后用这个给服务器反馈说你读到了
 
 ~~~~
@@ -550,8 +554,8 @@ message IMMsgDataReadAck{
 }
 ~~~~
 
-####2.获取未读消息数量
-#####请求：IMUnreadMsgCntReq
+#### 2.获取未读消息数量
+##### 请求：IMUnreadMsgCntReq
 
 ~~~~
 //cmd_id:  CID_MSG_UNREAD_CNT_REQUEST(0x0307)
@@ -563,7 +567,7 @@ message IMUnreadMsgCntReq{
 }
 ~~~~
 
-#####应答：IMUnreadMsgCntRsp
+##### 应答：IMUnreadMsgCntRsp
 
 ~~~~
 //cmd_id:  CID_MSG_UNREAD_CNT_RESPONSE(0x0308)
@@ -577,9 +581,9 @@ message IMUnreadMsgCntRsp{
 }
 ~~~~
 
-####3.获取消息列表(加载聊天历史之类的操作)
+#### 3.获取消息列表(加载聊天历史之类的操作)
 
-#####请求：IMGetMsgListReq
+##### 请求：IMGetMsgListReq
 
 ~~~~
 //cmd id:CID_MSG_LIST_REQUEST(0x0309)
@@ -595,7 +599,7 @@ message IMGetMsgListReq{
 }
 ~~~~
 
-#####应答：IMGetMsgListRsp
+##### 应答：IMGetMsgListRsp
 群聊只能获取到用户加群以后的聊天记录
 
 ~~~~
@@ -612,7 +616,7 @@ message IMGetMsgListRsp{
 }
 ~~~~
 
-###五.文件传输相关
+### 五.文件传输相关
 
 ~~~~
 	1.创建好一个文件传输的task，客户端会连接file_server验证身份，接着会收到file_server的拉流请求(接收方在线则是转发接收方的拉流请求,若是离线传输则是file_server自动生成)，根据拉流请求的偏移。客户端应答后续定量(32768字节)的文件文件偏移一直到传输完整。
@@ -623,9 +627,9 @@ message IMGetMsgListRsp{
 //service_idSID_FILE(0x0005)
 ~~~~
 
-####1.创建一个文件传输的任务
+#### 1.创建一个文件传输的任务
 
-#####请求:IMFileReq
+##### 请求:IMFileReq
 
 ~~~~
 //cmd id: 	CID_FILE_REQUEST 0x0506
@@ -640,7 +644,7 @@ message IMFileReq{
 }
 ~~~~
 
-#####应答:IMFileRsp
+##### 应答:IMFileRsp
 
 ~~~~
 	//cmd id: 	CID_FILE_RESPONSE 0x0507
@@ -656,8 +660,8 @@ message IMFileRsp{
 }
 ~~~~
 
-####2.检查自己是否有离线文件需要接收
-#####请求:IMFileHasOfflineReq
+#### 2.检查自己是否有离线文件需要接收
+##### 请求:IMFileHasOfflineReq
 
 ~~~~
 //cmd id: 	CID_FILE_HAS_OFFLINE_REQ 0x0509
@@ -668,7 +672,7 @@ message IMFileHasOfflineReq{
 }
 ~~~~
 
-####应答
+#### 应答
 
 ~~~~
 //cmd id: 	CID_FILE_HAS_OFFLINE_RSP 0x050a
@@ -683,9 +687,9 @@ message IMFileHasOfflineRsp{
 ~~~~
 
 
-####3.生成一条离线任务的记录
+#### 3.生成一条离线任务的记录
 得通知服务器写入数据库 对方上线后可以通过上面那个请求查询
-#####请求:IMFileAddOfflineReq
+##### 请求:IMFileAddOfflineReq
 	
 
 ~~~~
@@ -701,7 +705,7 @@ message IMFileAddOfflineReq{
 ~~~~
 
 
-####4.标记一条离线任务已被用户下载
+#### 4.标记一条离线任务已被用户下载
 下载完离线文件应该通知数据去修改这条记录的状态
 
 ~~~~
@@ -716,8 +720,8 @@ message IMFileDelOfflineReq{
 
 
 
-####5.验证用户(与file_server的交互)
-#####请求:IMFileLoginReq
+#### 5.验证用户(与file_server的交互)
+##### 请求:IMFileLoginReq
 
 
 ~~~~
@@ -731,7 +735,7 @@ message IMFileLoginReq{
 ~~~~
 
 
-#####请求:IMFileLoginRsp
+##### 请求:IMFileLoginRsp
 
 
 ~~~~
@@ -745,8 +749,8 @@ message IMFileLoginRsp{
 ~~~~
 
 
-####6.拉流(与file_server的交互)
-#####请求:IMFilePullDataReq
+#### 6.拉流(与file_server的交互)
+##### 请求:IMFilePullDataReq
 如果是离线文件，则又服务器发起。若是在线传输则由接收方发起(file_server充当中转的角色)
 
 	
@@ -763,7 +767,7 @@ message IMFilePullDataReq{
 ~~~~
 
 
-####应答:IMFilePullDataRsp
+#### 应答:IMFilePullDataRsp
 
 ~~~~
 message IMFilePullDataRsp{
