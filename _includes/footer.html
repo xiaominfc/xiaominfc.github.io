@@ -1,20 +1,22 @@
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer left column one-half">
-      <section class="small-font">
-        replay <a href="mailto:xiaominfc@126.com">xiaominfc</a>
-      </section>
-    </div>
+<footer class="footer">
+  <div class="container text-center col-md-12">
 
-    <div class="footer right column one-half">
-      <section class="small-font">
+        <ul class="social-network social-circle">
         {% if site.github_username %}
-        {% include icon-github.html username=site.github_username %}
+        <li><a href="https://github.com/{{ site.github_username }}" class="icoGithub" title="Github"><i class="fa fa-github"></i></a></li>
         {% endif %}
         {% if site.twitter_username %}
-        {% include icon-twitter.html username=site.twitter_username %}
+        <li><a href="https://github.com/{{ site.twitter_username }}" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+        
         {% endif %}
-      </section>
-    </div>
+        {% if site.facebook_username %}
+        <li><a href="https://www.facebook.com/{{ site.facebook_username }}" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+        {% endif %}
+        
+        {% if site.googleplus_username %}
+        <li><a href="https://plus.google.com/u/0/+{{ site.googleplus_username }}" class="icoGoogle" title="Googleplus"><i class="fa fa-google-plus"></i></a></li>
+        {% endif %}
+
+        </ul>
   </div>
 </footer>
