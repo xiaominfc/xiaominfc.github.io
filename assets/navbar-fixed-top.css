@@ -20,7 +20,7 @@ body {
 .footer .container {
 	width: 100%;
 	margin:0px;
-	
+	padding-top: 5px;
 	height: 60px;
 	
 }

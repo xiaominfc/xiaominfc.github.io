@@ -57,6 +57,6 @@ title: Home
     </div>
     {% endfor %}
 
-    <div class="pagination older-post"><a href="./archive"><data data-icon="ei-arrow-right"></data> Archive  </a></div>
+    
   <!-- </div> -->
 </div>

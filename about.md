@@ -6,10 +6,11 @@ permalink: /about/
 
 我是一名在海投网工作的programmer
 
-
 ![image of me](/assets/img/user_icon.png){:height="48px"}.
 
-姓名：羊志敏
+姓名：羊志敏 
+
+籍贯：海南
 
 出生：1991年03月26日
 
