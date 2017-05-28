@@ -36,3 +36,6 @@ permalink: /about/
 
 ~~~~
 
+email：[xiaominfc@126.com](mailto:xiaominfc@126.com)
+
+qq: 793101503
