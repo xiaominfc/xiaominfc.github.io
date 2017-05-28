@@ -1,9 +1,12 @@
 ---
-layout: default
+layout: layout
 title: Home
 ---
-
+<div>
+<img  class="blog-bg" src="/assets/img/blog_bg.png">
+</div>
 <div class="container-list">
+
   <!-- <div class="post-list"> -->
 
     {% for post in site.posts limit:5%}
@@ -39,18 +42,6 @@ title: Home
         {% endfor %}
         -->
 
-        <!--
-        {% if post.author %}
-        <span class="author_meta">
-          <img src="{{site.baseurl}}/assets/img/{{post.author}}.jpg"></img>
-          <span>David Lin</span>
-        </span>
-        {% endif %}
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
       </footer>
       <hr/>
       </div>

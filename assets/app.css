@@ -5,12 +5,18 @@
 	color : #337ab7;
 }
 
+.blog-bg {
+    width: 100%;
+}
+
 .blog-sidebar {
 	padding-left: 0px;
 	padding-right: 0px;
 }
 
 .just-padding {
+    position: fixed;
+    width: 20%;
     padding-left: 5px;
     padding-top: 20px;
 }
