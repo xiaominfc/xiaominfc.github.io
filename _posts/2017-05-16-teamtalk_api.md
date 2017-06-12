@@ -243,7 +243,7 @@ message IMLogoutReq{
 }
 ~~~~
 
-##### 应答：IMLoginRes
+##### 应答：IMLogoutRsp
 
 ~~~~
 //cmd id:	CID_LOGIN_RES_LOGINOUT(0x0106)

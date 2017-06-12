@@ -2,7 +2,6 @@
 layout: post
 title:  AES加密(兼容php，java，objective-c)
 date: 2017-05-15 10:56:48 +0800
-#category: xiaominfc
 author: xiaominfc
 description: AES加密(兼容php，java，objective-c)
 categories: aes
