@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>简单的html示例</title>
+    <style>
+        .jwplayer .jw-icon-barlogo-new:before {
+            content: none;
+        }
+        .jw-icon-barlogo-new {
+            background: url('http://cyberplayer.bcelive.com/icon/logo.png') no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="playercontainer"></div>
+    <!-- <div id="playercontainer1"></div> -->
+    <script type="text/javascript" src="./cyberplayer.js"></script>
+    <script type="text/javascript" src="./htplayer.js"></script>
+    <script type="text/javascript">
+
+        var hplayer = new HaitouPlayer({width:600,height:400,htp_first:'playercontainer'});
+        hplayer.setTimeListener(function(data) {
+            console.log('time:' + data);
+        });
+        </script>
+</body>
+</html>
