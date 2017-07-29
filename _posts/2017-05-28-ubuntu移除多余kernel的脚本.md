@@ -5,6 +5,7 @@ date: 2017-05-28 10:18:48 +0800
 category: ubuntu
 author: xiaominfc
 description: ubuntu 移除多余kernel的脚本
+comments: true
 ---
 
 

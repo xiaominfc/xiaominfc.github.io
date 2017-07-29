@@ -24,10 +24,23 @@ layout: layout
    </div>
  </div>
 </div>
+{% if page.comments %}
 <div class="row">
-<!-- UY BEGIN -->
-<div id="uyan_frame" class="col-sm-9"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2140103"></script>
-<!-- UY END -->
+<div id="hypercomments_widget" class="col-sm-9"></div>
+<script type="text/javascript">
+_hcwp = window._hcwp || [];
+_hcwp.push({widget:"Stream", widget_id: 93825});
+(function() {
+if("HC_LOAD_INIT" in window)return;
+HC_LOAD_INIT = true;
+var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+lang = 'zh';
+var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/93825/"+lang+"/widget.js";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hcc, s.nextSibling);
+})();
+</script>
 </div>
+{% endif %}
 </article>
