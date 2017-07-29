@@ -28,6 +28,38 @@ layout: layout
 <div class="row">
 <div id="hypercomments_widget" class="col-sm-9"></div>
 <script type="text/javascript">
+var open = window.XMLHttpRequest.prototype.open,
+    send = window.XMLHttpRequest.prototype.send;
+
+
+//处理参数成同样的域名
+function reqConvertToRightDomain(text) {
+    const DEFAULTDOMAIN = 'https://xiaominfc.github.io'
+    var arrayOfStrings = decodeURIComponent(text).split('&');
+    var exp =/(\b(https?):\/\/[-A-Z0-9:.]*[-A-Z0-9+&@#\/%=~_|])/g;
+    //return arrayOfStrings[0].replace(exp,DEFAULTDOMAIN + '/') + '&' + arrayOfStrings[1].replace(exp,DEFAULTDOMAIN);
+    return arrayOfStrings[0].replace(exp,DEFAULTDOMAIN + '/') + '&' + arrayOfStrings[1];
+}
+
+function openReplacement(method, url, async, user, password) {
+  this._url = url;
+  open.apply(this, arguments);
+}
+
+function sendReplacement(data) {
+
+  if(this._url.indexOf('hypercomments.com/api/comments') || this._url.indexOf('hypercomments.com/api/hypertext')) {
+    console.log('url:' + this._url);
+    arguments[0] = reqConvertToRightDomain(data);
+    console.log(arguments);
+  }
+
+  send.apply(this, arguments);
+}
+window.XMLHttpRequest.prototype.open = openReplacement;
+window.XMLHttpRequest.prototype.send = sendReplacement;
+
+
 _hcwp = window._hcwp || [];
 _hcwp.push({widget:"Stream", widget_id: 93825});
 (function() {
