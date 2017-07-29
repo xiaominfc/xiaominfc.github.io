@@ -37,8 +37,8 @@ layout: layout
 //     const DEFAULTDOMAIN = 'https://xiaominfc.github.io'
 //     var arrayOfStrings = decodeURIComponent(text).split('&');
 //     var exp =/(\b(https?):\/\/[-A-Z0-9:.]*[-A-Z0-9+&@#\/%=~_|])/g;
-//     //return arrayOfStrings[0].replace(exp,DEFAULTDOMAIN + '/') + '&' + arrayOfStrings[1].replace(exp,DEFAULTDOMAIN);
-//     return arrayOfStrings[0].replace(exp,DEFAULTDOMAIN + '/') + '&' + arrayOfStrings[1];
+//     return encodeURIComponent(arrayOfStrings[0].replace(exp,DEFAULTDOMAIN + '/') + '&' + arrayOfStrings[1].replace(exp,DEFAULTDOMAIN));
+//     //return arrayOfStrings[0].replace(exp,DEFAULTDOMAIN + '/') + '&' + arrayOfStrings[1];
 // }
 
 // function openReplacement(method, url, async, user, password) {
@@ -60,7 +60,7 @@ layout: layout
 
 
 _hcwp = window._hcwp || [];
-_hcwp.push({widget:"Stream", widget_id: 93825});
+_hcwp.push({widget:"Stream", widget_id: 93825,SETTINGS_KEY: 'test123', xid:'test123'});
 (function() {
 if("HC_LOAD_INIT" in window)return;
 HC_LOAD_INIT = true;
