@@ -38,3 +38,6 @@ permalink: /about/
 
 email：[xiaominfc@126.com](mailto:xiaominfc@126.com)
 
+微信:扫扫二维码，加我微信
+
+![image of me](/assets/img/weixin_qr.JPG){:height="400px"}.
