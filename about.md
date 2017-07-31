@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-permalink: /about/
+#permalink: /about/
 ---
 
 我是一名在海投网工作的programmer
