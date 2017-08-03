@@ -40,6 +40,11 @@ title: About Me
 
 ~~~~
 
+业余爱好:
+~~~~
+骑行，听音乐，看各种编程相关书籍，实践各种编程语言以及想法。
+~~~~
+
 email：[xiaominfc@126.com](mailto:xiaominfc@126.com)
 
 微信:扫扫二维码，加我微信
