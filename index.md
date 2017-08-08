@@ -7,9 +7,6 @@ title: Home
 </div>
 <div class="container-list">
 
-  <!-- <div class="post-list"> -->
-
-  
     {% for post in site.posts %}
 
     <div class="card">
@@ -48,7 +45,4 @@ title: Home
       </div>
     </div>
     {% endfor %}
-
-    
-  <!-- </div> -->
 </div>
