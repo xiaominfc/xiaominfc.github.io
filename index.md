@@ -9,7 +9,8 @@ title: Home
 
   <!-- <div class="post-list"> -->
 
-    {% for post in site.posts limit:5%}
+  
+    {% for post in site.posts %}
 
     <div class="card">
       <div class="card-block">
