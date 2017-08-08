@@ -43,7 +43,7 @@ title: About Me
 
 
 深圳有方科技期间(android, java)
-2013.07-2013.10 android系统luancher的定制化修改
+2013.07-2013.10 android系统launcher的定制化修改
 1.自定义UI
 2.参考市面主流手机对android系统程序luancher做定制
 3.修改部分android framework的代码
