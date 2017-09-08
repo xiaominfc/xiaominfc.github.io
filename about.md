@@ -21,7 +21,7 @@ comments: true
 ~~~~
 2013.07-2014.07
 公司：深圳有方科技
-职责：一名可爱的android程序员 android rom的定制修改
+职责：android程序员 android rom的定制修改
 
 
 2014.07-至今
@@ -61,7 +61,7 @@ comments: true
 2.推送系统的后台实现
 
 
-武汉鸣鸾信息科技(创业每个人所以都身兼多职 承接多种平台的独立开发以及维护)[海投网:http://www.haitou.cc]
+武汉鸣鸾信息科技(承接多种平台的独立开发以及维护)[海投网:http://www.haitou.cc]
 2014.08-至今 海投网app(android java ios objc)
 1.android／ios客户端的架构设计以及实现
 2.android/ ios客户端的迭代开发以及维护 5次重大升级
