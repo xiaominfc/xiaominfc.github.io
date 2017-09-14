@@ -4,7 +4,7 @@ title:  android编译librtmp
 date: 2017-09-15 20:48:48 +0800
 category: android
 author: xiaominfc
-description: teamtalk API
+description: android 编译 librtmp
 comments: true
 ---
 
