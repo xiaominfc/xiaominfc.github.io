@@ -28,7 +28,7 @@ LOCAL_MODULE := rtmp
 LOCAL_SRC_FILES := amf.c hashswf.c log.c parseurl.c rtmp.c
 
 
-#不依赖加密模式 就不支持ssl
+#不依赖加密模式 就是不支持ssl了
 LOCAL_CFLAGS += -DNO_CRYPTO
 LOCAL_LDLIBS := -llog
 
