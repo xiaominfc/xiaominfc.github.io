@@ -5,7 +5,7 @@ title:  机器学习&tensorflow相关
 date: 2017-11-18 22:56:48 +0800
 #category: xiaominfc
 author: xiaominfc
-description: 机器学习&tensorflow相关
+description: 机器学习 tensorflow相关
 categories: 机器学习 tensorflow
 source: tensorflow
 comments: true
