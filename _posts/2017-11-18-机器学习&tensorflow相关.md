@@ -11,9 +11,9 @@ comments: true
 ---
 
 
-##机器学习任务
+## 机器学习任务
 
-###1.supervised learning(监督式学习)
+### 1.supervised learning(监督式学习)
 
 ~~~~
 是从标记的训练数据推断函数的机器学习任务。
@@ -24,7 +24,7 @@ comments: true
 ~~~~
 
 
-###2.unsupervised learning(无监督式学习)
+### 2.unsupervised learning(无监督式学习)
 
 ~~~~
 从“未标记的”数据（未包括在观察中的分类或分类）推导出隐藏结构的功能。
@@ -32,7 +32,7 @@ comments: true
 ~~~~
 
 
-###3.reinforcement learning(强化学习)
+### 3.reinforcement learning(强化学习)
 
 ~~~~
 强化学习（RL）是受行为主义心理学启发的机器学习领域，关注软件特工如何在环境中采取行动，从而最大化累积奖励的概念。
@@ -43,9 +43,9 @@ comments: true
 ~~~~
 
 
-##tensorflow
+## tensorflow
 
-###data model(数据模型)
+### data model(数据模型)
 
 ~~~~
 数据模型相当于在tensorflow中的张量(tensor)，简单的说就是多维数组,具有三个特征:Rank(阶),Shape(形状),Type(类型)
@@ -97,7 +97,7 @@ DT_QUINT8     |tf.quint8         |用于量化ops的8位无符整型
 {:.table .table-bordered}
 
 
-###Variables
+### Variables
 
 ~~~
 Variable 是tensorflow 用于存放或者更新参数的实例
@@ -121,7 +121,7 @@ with tf.Session() as sess:
 
 ~~~
 
-###Fetches
+### Fetches
 
 ~~~
 获取运算的输出结果
@@ -146,7 +146,7 @@ with tf.Session() as sess:
 ~~~
 
 
-###Feeds
+### Feeds
 
 ~~~
 提供运算的输入数据
@@ -169,15 +169,15 @@ print sess.run(y, feed_data={x:data})
 
 ~~~
 
-###使用TensorBoard
+### 使用TensorBoard
 
-####安装
+#### 安装
 
 ~~~
 pip install tensorboard
 
 ~~~
 
-###未完待续！
+### 未完待续！
 
 
