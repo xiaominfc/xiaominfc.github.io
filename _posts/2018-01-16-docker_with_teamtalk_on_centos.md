@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  docker with teamtalk on centos
-date: 2017-11-18 22:56:48 +0800
+date: 2018-01-16 10:26:48 +0800
 #category: xiaominfc
 author: xiaominfc
 description: centos with teamtalk
