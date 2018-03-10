@@ -13,7 +13,7 @@ comments: true
 基于socketIO 1.x的版本
 服务端：http://localhost:3007
 
-##1.获取sid
+## 1.获取sid
 ```
 http get
 
@@ -31,13 +31,13 @@ response:
 
 ```
 
-##2.创建ws连接
+## 2.创建ws连接
 ```
 连接格式:ws://localhost:3007/socket.io/?transport=websocket&sid={sid}
 sid的值就是之前获取的sid
 ```
 
-##3.发送http的Ping 直到ws连接成功
+## 3.发送http的Ping 直到ws连接成功
 ```
 http get
   request:http://localhost:3007/socket.io/?transport=polling&b64=1&sid={sid}
@@ -47,7 +47,7 @@ http get
 
 ```
 
-##3.在ws没连接成功前 client向server 通过emit行为发送的数据是以http post的方式提交的
+## 4.在ws没连接成功前 client向server 通过emit行为发送的数据是以http post的方式提交的
 
 ```
 http post
@@ -58,7 +58,7 @@ http post
 
 ```
 
-##4.ws连接成功后
+## 5.ws连接成功后
 ```
    首先发送2probe的textframe过去 服务端应答一个3probe的textframe 这样与socketio服务端的连接就算完成建立了
 ```
