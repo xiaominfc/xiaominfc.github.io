@@ -17,4 +17,7 @@
   <link rel="stylesheet" href="{{ "/assets/app.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/assets/dist/css/font-awesome.min.css" | prepend: site.baseurl }}">
   {% seo %}
+  {% if page.use_math %}
+      {% include mathjax_support.html %}
+  {% endif %}
 </head>
