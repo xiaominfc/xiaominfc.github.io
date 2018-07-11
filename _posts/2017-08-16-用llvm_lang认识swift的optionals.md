@@ -89,7 +89,7 @@ store i1 false, i1* bitcast ([1 x i8]* getelementptr inbounds (%GSqSi_, %GSqSi_*
 
 ## 再来一段代码
 ~~~~
-ode:Int? = 200
+code:Int? = 200
 code = nil
 ~~~~
 
