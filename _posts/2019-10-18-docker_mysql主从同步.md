@@ -14,7 +14,9 @@ comments: true
 
 ## 获取mysql的docker镜像
 
-[https://hub.docker.com/_/mysql](https://hub.docker.com/_/mysql)
+
+镜像地址:[https://hub.docker.com/_/mysql](https://hub.docker.com/_/mysql)
+
 
 ```sh
 docker pull mysql:tag
