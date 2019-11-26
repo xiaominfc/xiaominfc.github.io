@@ -91,7 +91,7 @@ comments: true
 3. 自定义了一套路由规则
 4. 插件式添加安全模块，加密模块
 
-###### 即时通许系统(比较市面最后选择了一个开源项目进行二次开发)(c++ linux java objc php socket epoll libevent pthread ProtocolBuffers mysql redis)[2015.06-至今]
+###### 即时通讯系统(比较市面最后选择了一个开源项目进行二次开发)(c++ linux java objc php socket epoll libevent pthread ProtocolBuffers mysql redis)[2015.06-至今]
 1. 即时通讯系统的后台服务开发以及维护(客户端连接维护服务 数据库业务操作服务 微型文件分享系统 apple推送服务 路由服务 负载均衡服务 http_API服务)
 2. 即时通讯系统的客户端开发以及维护(android / ios)
 3. 各个平台的集成
