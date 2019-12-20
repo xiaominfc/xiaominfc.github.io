@@ -29,7 +29,8 @@ comments: true
 
 http_msg_server => db_proxy_server
 db_proxy_server => http_msg_server
-http_msg_server => router_server
+http_msg_server => route_server
+route_server => msg_server
 
 原理很简单 只是把原来msg_server的角色换成了 http_msg_server 
 过程一样 包装一个IMMsgData
@@ -173,6 +174,54 @@ void CHttpQuery::_SendGroupMessage(const string& strAppKey,Json::Value& post_jso
 
 
 ```
+
+#### db写入成功后 转发route_server 让route_server分发到msg_server进而发到客户端
+
+class:DBServConn
+
+```
+
+// new method
+
+void CDBServConn::_HandleMsgClient(CImPdu *pPdu)
+{
+
+    IM::Message::IMMsgData msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    CRouteServConn* pRouteConn = get_route_serv_conn();
+    if (pRouteConn) {
+        pRouteConn->SendPdu(pPdu);
+    }
+
+    uint32_t msg_id = 0;
+    if(msg.has_msg_id())
+    {
+       msg_id = msg.msg_id();
+    }
+
+    CDbAttachData attach_data((uchar_t*)msg.attach_data().c_str(), msg.attach_data().length());
+    uint32_t http_handle = attach_data.GetHandle();
+    CHttpConn* pHttpConn = FindHttpConnByHandle(http_handle);
+    if(!pHttpConn)
+    {
+        log("no http connection");
+        return;
+    }
+
+    const int bufferSize = 4096;
+    char response_buf[bufferSize] = {0};
+    uint32_t outSize = PackSendResult(HTTP_ERROR_SUCCESS, HTTP_ERROR_MSG[0].c_str(),msg_id, response_buf , bufferSize);
+
+    pHttpConn->Send(response_buf, outSize);
+    pHttpConn->Close();
+}
+
+
+
+```
+
+
+
 
 ### 结语：具体实现可以看我github上维护的分支
 
